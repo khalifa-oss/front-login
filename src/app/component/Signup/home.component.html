@@ -1,0 +1,85 @@
+
+
+
+<!--<div *ngIf="isSignedUp; else signupForm">-->
+<!--  Your registration is successful. Please login!-->
+<!--</div>-->
+
+<!--<ng-template #signupForm>-->
+<!--  <div class="row col-sm-6" style="max-width:350px;">-->
+<!--    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>-->
+<!--      <div class="form-group">-->
+<!--        <label for="name">Your name</label>-->
+<!--        <input type="text" class="form-control" name="name" [(ngModel)]="form.name" #name="ngModel" required />-->
+<!--        <div *ngIf="f.submitted && name.invalid">-->
+<!--          <div *ngIf="name.errors.required">Name is required</div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="username">Username</label>-->
+<!--        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"-->
+<!--               required />-->
+<!--        <div *ngIf="f.submitted && username.invalid">-->
+<!--          <div *ngIf="username.errors.required">Username is required</div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="form-group">-->
+<!--        <label for="password">Password</label>-->
+<!--        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"-->
+<!--               required minlength="6" />-->
+<!--        <div *ngIf="f.submitted && password.invalid">-->
+<!--          <div *ngIf="password.errors.required">Password is required</div>-->
+<!--          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <button class="btn btn-primary">Register</button>-->
+<!--        <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">-->
+<!--          Signup failed!<br/>{{errorMessage}}-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</ng-template>-->
+
+
+
+<div class="container">
+
+    <form name =" signin" (ngSubmit)="f.form.valid && registrer()" #f="ngForm" novalidate>
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
+
+      <div class="form-group" >
+        <label for="name"> Name</label>
+        <input type="text"  name ="name" class="form-control" id ="name" [(ngModel)]="signupInfo.name" #name="ngModel" required/>
+        <div class="alert alert-danger" *ngIf="f.submitted && !name.valid">
+          A valid name is required.
+        </div>
+      </div>
+
+      <div class="form-group" >
+        <label for="username"> userName</label>
+        <input type="text"  name ="username" class="form-control" id ="username" [(ngModel)]="signupInfo.username" #username="ngModel" required/>
+        <div class="alert alert-danger" *ngIf="f.submitted && !username.valid">
+          A valid username is required.
+        </div>
+      </div>
+      <div class="form-group" >
+        <label for="password"> password</label>
+        <input type="password"  name ="password" class="form-control" id ="password" [(ngModel)]="signupInfo.password" #password="ngModel" required/>
+        <div class="alert alert-danger" *ngIf="f.submitted && !password.valid">
+          A valid password is required.
+        </div>
+      </div>
+
+      <button type="submit"  class="btn  btn-primary"  > Sign Up</button>
+    </form>
+    <div class="row">
+      <a href="#"  routerLink ="/login">I Have An Account</a>
+    </div>
+  </div>
+
+
